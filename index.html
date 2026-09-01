@@ -1,22 +1,48 @@
-<script type="text/babel" data-type="module" data-presets="react">
-  import React from 'react';
-  import { createRoot } from 'react-dom/client';
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@latest?dev",
+          "react-dom/client": "https://esm.sh/react-dom@latest/client?dev",
+          "react/jsx-runtime": "https://esm.sh/react@latest/jsx-runtime?dev"
+        }
+      }
+    </script>
 
-  const domNode = document.getElementById('app');
+    <!-- Babel Standalone -->
+    <script src="https://unpkg.com/@babel/standalone@latest/babel.min.js"></script>
+  </head>
 
-  function Header() {
-    return <h1>Develop. Preview. Ship.</h1>;
-  }
+  <body>
+    <div id="app"></div>
 
-  function HomePage() {
-    return (
-      <div>
-        <Header />
-      </div>
-    );
-  }
+    <script
+      type="text/babel"
+      data-type="module"
+      data-presets="react"
+    >
+      import React from 'react';
+      import { createRoot } from 'react-dom/client';
 
-  const root = createRoot(domNode);
+      const domNode = document.getElementById('app');
 
-  root.render(<HomePage />);
-</script>
+      function Header() {
+        return <h1>Develop. Preview. Ship.</h1>;
+      }
+
+      function HomePage() {
+        return (
+          <div>
+            <Header />
+          </div>
+        );
+      }
+
+      const root = createRoot(domNode);
+
+      root.render(<HomePage />);
+    </script>
+  </body>
+</html>
