@@ -1,22 +1,27 @@
 <html>
   <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@latest?dev",
+          "react-dom/client": "https://esm.sh/react-dom@latest/client?dev"
+        }
+      }
+    </script>
   </head>
 
   <body>
     <div id="app"></div>
 
-    <script type="text/javascript">
-      const app = document.getElementById('app');
+    <script type="module">
+      import React from 'react';
+      import { createRoot } from 'react-dom/client';
 
-      const header = document.createElement('h1');
+      const domNode = document.getElementById('app');
 
-      const text = 'Develop. Preview. Ship.';
+      const root = createRoot(domNode);
 
-      const headerContent = document.createTextNode(text);
-
-      header.appendChild(headerContent);
-
-      app.appendChild(header);
+      root.render(<h1>Develop. Preview. Ship.</h1>);
     </script>
   </body>
 </html>
